@@ -33,7 +33,7 @@
 
 </head>
 
-<body id="page-top" class="index">
+<body ng-app id="page-top" class="index">
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -69,14 +69,31 @@
                 <div class="col-lg-12">
                     <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
-                        <span class="name">Start Bootstrap</span>
+                      <div>
+                        <!-- When this element is clicked, hide the tooltip -->
+                        <div ng-app ng-controller="InlineEditorController2" ng-click="hideTooltip()">
+
+                          <!-- This is the tooltip. It is shown only when the showtooltip variable is truthful -->
+                          <div class="tooltip1" ng-click="$event.stopPropagation()" ng-show="showtooltip">
+
+                            <!-- ng-model binds the contents of the text field with the "value" model.
+                             Any changes to the text field will automatically update the value, and
+                             all other bindings on the page that depend on it.  -->
+                            <input type="text" ng-model="value2" />
+                          </div>
+
+                          <!-- Call a method defined in the InlineEditorController that toggles
+                           the showtooltip variable -->
+                          <p class = "name" id="edit" ng-click="toggleTooltip($event)">{{value2}}</p>
+
+                        </div>
                         <hr class="star-light">
-                        <div ng-app>
+                        <div>
                           <!-- When this element is clicked, hide the tooltip -->
                           <div ng-app ng-controller="InlineEditorController" ng-click="hideTooltip()">
 
                           	<!-- This is the tooltip. It is shown only when the showtooltip variable is truthful -->
-                          	<div class="tooltip" ng-click="$event.stopPropagation()" ng-show="showtooltip">
+                          	<div class="tooltip1" ng-click="$event.stopPropagation()" ng-show="showtooltip">
 
                           		<!-- ng-model binds the contents of the text field with the "value" model.
                           		 Any changes to the text field will automatically update the value, and
@@ -86,28 +103,9 @@
 
                           	<!-- Call a method defined in the InlineEditorController that toggles
                           	 the showtooltip variable -->
-                          	<p id="edit" ng-click="toggleTooltip($event)">{{value}}</p>
+                          	<p class = "skills" id="edit" ng-click="toggleTooltip($event)">{{value}}</p>
 
                           </div>
-                          <div ng-app>
-                            <!-- When this element is clicked, hide the tooltip -->
-                            <div ng-app ng-controller="InlineEditorController1" ng-click="hideTooltip()">
-
-                              <!-- This is the tooltip. It is shown only when the showtooltip variable is truthful -->
-                              <div class="tooltip" ng-click="$event.stopPropagation()" ng-show="showtooltip">
-
-                                <!-- ng-model binds the contents of the text field with the "value" model.
-                                 Any changes to the text field will automatically update the value, and
-                                 all other bindings on the page that depend on it.  -->
-                                <input type="text" ng-model="value1" />
-                              </div>
-
-                              <!-- Call a method defined in the InlineEditorController that toggles
-                               the showtooltip variable -->
-                              <p id="edit" ng-click="toggleTooltip($event)">{{value1}}</p>
-
-                            </div>
-                        <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
                     </div>
                 </div>
             </div>
@@ -124,11 +122,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+              <div>
+                <!-- When this element is clicked, hide the tooltip -->
+                <div ng-app ng-controller="InlineEditorController1" ng-click="hideTooltip()">
+
+                  <!-- This is the tooltip. It is shown only when the showtooltip variable is truthful -->
+                  <div class="tooltip1" ng-click="$event.stopPropagation()" ng-show="showtooltip">
+
+                    <!-- ng-model binds the contents of the text field with the "value" model.
+                     Any changes to the text field will automatically update the value, and
+                     all other bindings on the page that depend on it.  -->
+                    <input type="text" ng-model="value1" />
+                  </div>
+
+                  <!-- Call a method defined in the InlineEditorController that toggles
+                   the showtooltip variable -->
+                  <p id="edit" ng-click="toggleTooltip($event)">{{value1}}</p>
+
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <a href="#" class="btn btn-lg btn-outline">
