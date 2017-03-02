@@ -67,7 +67,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="img/profile.png" alt="">
+
+			<div>
+                        <!-- When this element is clicked, hide the tooltip -->
+                        <div ng-app ng-controller="InlineEditorControllerImg" ng-click="hideTooltip()">
+
+                          <!-- This is the tooltip. It is shown only when the showtooltip variable is truthful -->
+                          <div class="tooltip1" ng-click="$event.stopPropagation()" ng-show="showtooltip">
+
+                            <!-- ng-model binds the contents of the text field with the "value" model.
+                             Any changes to the text field will automatically update the value, and
+                             all other bindings on the page that depend on it.  -->
+                            <input type="text" ng-model="imgUrl" />
+                          </div>
+
+                          <!-- Call a method defined in the InlineEditorController that toggles
+                           the showtooltip variable -->
+			  <img class="img-responsive" src="{{imgUrl}}" alt="" ng-click="toggleTooltip($event)">
+
+                        </div>
+
                     <div class="intro-text">
                       <div>
                         <!-- When this element is clicked, hide the tooltip -->
@@ -155,8 +174,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; My Mini Portfolio 2016
-                    </div>
+                	&copy; Tylor Bayer, David Corey
+	            </div>
                 </div>
             </div>
         </div>
